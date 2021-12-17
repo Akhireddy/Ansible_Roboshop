@@ -6,3 +6,4 @@
     - name: Print a Value
       ansible.builtin.debug:
         msg:URL - {{URL}}
+#to access varible inside your ansible use double folower {{}}

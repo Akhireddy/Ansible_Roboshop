@@ -10,10 +10,9 @@ fi
 
 COMPONENT=$1
 
-
 TEMP_ID="lt-0d8ee8ae79ccfe0df"
 TEMP_VER=1
-ZONE_ID=Z023344635OU9H9ZUUKEO
+ZONE_ID=Z023344635OU9H9ZUUKE0
 
 CREATE_INSTANCE() {
   ## Check if instance is already there

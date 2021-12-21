@@ -2,16 +2,19 @@
   ansible.builtin.yum:
       name: nginx
       state: installed
+
 - name: Unarchive a file that is already on the remote machine
   ansible.builtin.unarchive:
     src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
     dest: /tmp
     remote_src: yes
+
 - name: Remove file html old web pages
   ansible.builtin.file:
     path: /usr/share/nginx/html
     state: absent
-- name: copy html files
+
+- name: Copy the html files
     ansible.builtin.copy:
       src: /tmp/frontend-main/static/
       dest: /usr/share/nginx/html/

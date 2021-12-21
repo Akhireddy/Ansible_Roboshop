@@ -7,3 +7,12 @@
     src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
     dest: /tmp
     remote_src: yes
+- name: Remove file html old web pages
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
+- name: copy html files
+    ansible.builtin.copy:
+      src: /tmp/frontend-main/static/
+      dest: /usr/share/nginx/html/
+      remote_src: yes

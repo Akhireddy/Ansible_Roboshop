@@ -1,6 +1,6 @@
 - name: install nginx
   ansible.buitlin.yum:
-    - name: nginx
+      name: nginx
       state: installed
 - name: Unarchive a file that is already on the remote machine
   ansible.builtin.unarchive:

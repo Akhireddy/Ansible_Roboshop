@@ -9,10 +9,15 @@ if [ -z "$1" ]; then
 fi
 
 COMPONENT=$1
+ENV=$2
 
-TEMP_ID="lt-0d8ee8ae79ccfe0df"
+if [ ! -z "$ENV" ]; then
+  ENV="-${ENV}"
+fi
+
+TEMP_ID="lt-00c437664b04d92df"
 TEMP_VER=1
-ZONE_ID=Z023344635OU9H9ZUUKE0
+ZONE_ID=Z023344635OU9H9ZUUKEO
 
 CREATE_INSTANCE() {
   ## Check if instance is already there
@@ -31,3 +36,13 @@ CREATE_INSTANCE() {
   sed -e "s/IPADDRESS/${IPADDRESS}/" -e "s/COMPONENT/${COMPONENT}/" record.json >/tmp/record.json
   aws route53 change-resource-record-sets --hosted-zone-id ${ZONE_ID} --change-batch file:///tmp/record.json | jq
 }
+
+if [ "$COMPONENT" == "all" ]; then
+  for comp in frontend mongodb catalogue redis user cart mysql shipping rabbitmq payment dispatch ; do
+    COMPONENT=$comp$ENV
+    CREATE_INSTANCE
+  done
+else
+  COMPONENT=$COMPONENT$ENV
+  CREATE_INSTANCE
+fi

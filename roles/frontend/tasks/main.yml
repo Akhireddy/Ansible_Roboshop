@@ -1,0 +1,9 @@
+- name: install nginx
+  ansible.buitlin.yum:
+    - name: nginx
+      state: installed
+- name: Unarchive a file that is already on the remote machine
+  ansible.builtin.unarchive:
+    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
+    dest: /tmp
+    remote_src: yes

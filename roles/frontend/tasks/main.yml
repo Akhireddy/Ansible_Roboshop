@@ -19,3 +19,17 @@
     src: /tmp/frontend-main/static/
     dest: /usr/share/nginx/html/
     remote_src: yes
+
+- name: copy localhost.conf file
+  ansible.builtin.copy:
+    src: localhost.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
+- name:
+    ansible.builtin.service:
+      name: httpd
+      state: started
+      enabled: yes
+
+
+

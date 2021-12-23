@@ -12,5 +12,5 @@
 - name: catalouge
   hosts: CATAlOUGE
   become: yes
-    role:
-      - catalouge
+  role:
+    - catalouge

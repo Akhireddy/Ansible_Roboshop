@@ -9,3 +9,8 @@
   become: yes
   roles:
     - mongodb
+- name: catalouge
+  hosts: CATAlOUGE
+  become: yes
+    role:
+      - catalouge

@@ -1,5 +1,5 @@
 - name: install nodej -c++
-  ansible.builtin.apt:
+  ansible.builtin.yum:
     name:
       - nodejs
       - make

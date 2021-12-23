@@ -1,5 +1,5 @@
-- name: catalouge setup
-  hosts: CATAlOUGE
+- name: Catalogue setup
+  hosts: CATALOGUE
   become: yes
-  role:
-    - catalouge
+  roles:
+    - catalogue

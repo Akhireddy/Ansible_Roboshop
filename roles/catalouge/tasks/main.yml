@@ -1,0 +1,11 @@
+- name: install nodej -c++
+  ansible.builtin.yum:
+    name:
+      - nodejs
+      - make
+      - gcc-c++
+- name: create roboshop user
+  ansible.builtin.user:
+    name: roboshop
+
+- name:
